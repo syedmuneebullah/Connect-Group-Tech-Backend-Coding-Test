@@ -17,8 +17,8 @@ use App\Http\Controllers\GroupByOwnersController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['Challenges/'], function($route){
-    $route->get('2', [ArrayController::class, 'index'])->name('get.duplicates');
-    $route->get('4',[GroupByOwnersController::class, 'index'])->name('groupby.owners');
+Route::group(['prefix'=>'challenges'],function(){
+    Route::get('/2', [ArrayController::class, 'index'])->name('get.duplicates');
+    Route::get('/4',[GroupByOwnersController::class, 'index'])->name('groupby.owners');
 });
 
